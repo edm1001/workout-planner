@@ -5,8 +5,6 @@ import Home from "./pages/Home.jsx";
 import Planner from "./pages/Planner.jsx";
 import WorkoutLibrary from "./pages/WorkoutLibrary.jsx";
 
-console.log("App");
-
 const App = () => {
   return (
     <>
