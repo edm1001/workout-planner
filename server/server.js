@@ -8,15 +8,12 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use('/api', exercisesRouter);
-
+app.use('/api/workouts', exercisesRouter);
+const MONGO_URL = process.env.MONGO_URL;
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(MONGO_URL)
 .then(() => {
-  console.log('Connected to MongoDB', MONGO_URL);
+  console.log('Connected to MongoDB');
 })
 .catch(err => console.error('MongoDB connection error:', err));
 

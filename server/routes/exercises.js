@@ -4,7 +4,7 @@ const Workout = require('../models/Workout.js');
 const router = express.Router();
 
 // Get all workouts
-router.get('/workouts', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const workouts = await Workout.find();
         res.json(workouts);
@@ -14,7 +14,7 @@ router.get('/workouts', async (req, res) => {
 });
 
 // Get workouts by muscle group (tag)
-router.get('/workouts/muscle/:muscleGroup', async (req, res) => {
+router.get('/muscle/:muscleGroup', async (req, res) => {
     try {
         const { muscleGroup } = req.params;
         const workouts = await Workout.find({ tags: muscleGroup });
@@ -25,7 +25,7 @@ router.get('/workouts/muscle/:muscleGroup', async (req, res) => {
 });
 
 // Get a single workout by ID
-router.get('/workouts/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const workout = await Workout.findById(req.params.id);
         if (!workout) {
